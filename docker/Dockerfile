@@ -35,6 +35,5 @@ ADD --chown=tomcat:tomcat https://github.com/HiromuHota/pentaho-kettle/releases/
 RUN echo "CLASSPATH="$CATALINA_HOME"/lib/webspoon-security-$dist-$patch.jar" | tee ${CATALINA_HOME}/bin/setenv.sh
 COPY --chown=tomcat:tomcat catalina.policy ${CATALINA_HOME}/conf/
 COPY --chown=tomcat:tomcat mariadb-java-client-2.6.0.jar  ${CATALINA_HOME}/webapps/spoon/WEB-INF/lib/
-COPY --chown=tomcat:tomcat inceptor-driver-6.0.2.jar  ${CATALINA_HOME}/webapps/spoon/WEB-INF/lib/
 RUN mkdir -p $HOME/.kettle/users && mkdir -p $HOME/.pentaho/users
 RUN mkdir -p $HOME/.kettle/data && cp -r ${CATALINA_HOME}/samples $HOME/.kettle/data/samples
